@@ -1,0 +1,20 @@
+{
+  "folders": [
+    {
+      "key": "f1071bca1ba8bc45db62",
+      "color": "#30D5C8",
+      "name": "android"
+    },
+    {
+      "key": "9234e42a62c7c29e4eb6",
+      "color": "#E8D252",
+      "name": "iOS"
+    },
+    {
+      "key": "61e09c391b667a072e33",
+      "color": "#30D5C8",
+      "name": "Forms"
+    }
+  ],
+  "version": "1.0"
+}
