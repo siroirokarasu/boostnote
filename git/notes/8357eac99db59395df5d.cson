@@ -1,0 +1,360 @@
+createdAt: "2018-01-21T10:45:29.074Z"
+updatedAt: "2018-01-21T11:07:09.380Z"
+type: "MARKDOWN_NOTE"
+folder: "8ac332b1ad340d9f7cbf"
+title: "e.g."
+content: '''
+  git使い方
+  
+  <h1>
+  <span id="基本操作" class="fragment"></span><a href="#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><i class="fa fa-link"></i></a>基本操作</h1>
+  
+  <h2>
+  <span id="リモートリポジトリからクローンする" class="fragment"></span><a href="#%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%8B%E3%82%89%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%B3%E3%81%99%E3%82%8B"><i class="fa fa-link"></i></a>リモートリポジトリからクローンする</h2>
+  
+  <p>大抵のgitプロジェクトでは、githubなどから自分の環境にクローンを作成するところからはじまる。基本文法は以下の通り</p>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>$ git clone &lt;uri&gt;
+  </pre></div></div>
+  
+  <p>このuriの中に入るのは、http,httpsから始まるurlやsshプロトコルで指定するもの、gitoliteなどの他のソフトウェアと連携するものなどいくつかのパターンがある。</p>
+  
+  <h3>
+  <span id="http-httpsを使う場合" class="fragment"></span><a href="#http-https%E3%82%92%E4%BD%BF%E3%81%86%E5%A0%B4%E5%90%88"><i class="fa fa-link"></i></a>http, httpsを使う場合</h3>
+  
+  <p>だいたい、githubからcloneする場合はこのパターン。</p>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>$ git clone https://github.com/YYYYYY/XXXXX.git
+  </pre></div></div>
+  
+  <p>ウェブデザインが変化してからだいぶ経つが、httpsのurlはページ右サイドバーの、HTTPS clone URLのボタンをクリックするとクリップボードにコピーされる。</p>
+  
+  <h3>
+  <span id="sshプロトコルから始まる場合" class="fragment"></span><a href="#ssh%E3%83%97%E3%83%AD%E3%83%88%E3%82%B3%E3%83%AB%E3%81%8B%E3%82%89%E5%A7%8B%E3%81%BE%E3%82%8B%E5%A0%B4%E5%90%88"><i class="fa fa-link"></i></a>sshプロトコルから始まる場合</h3>
+  
+  <p>研究室や会社の一部門などの比較的ローカルなセクションで、gitを使っている場合はこのケースが多い。</p>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>$ git clone ssh://user@hostname/path/to/repos
+  </pre></div></div>
+  
+  <p>ユーザにはアクセスするユーザ名、hostnameはローカルマシンのホスト名またはIPアドレス、/path/to/reposには、gitリポジトリまでの絶対パスが入る。ホームディレクトリからの相対パスじゃないことに注意。</p>
+  
+  <h3>
+  <span id="gitoliteなどの他のサードパーティのソフトとの連携" class="fragment"></span><a href="#gitolite%E3%81%AA%E3%81%A9%E3%81%AE%E4%BB%96%E3%81%AE%E3%82%B5%E3%83%BC%E3%83%89%E3%83%91%E3%83%BC%E3%83%86%E3%82%A3%E3%81%AE%E3%82%BD%E3%83%95%E3%83%88%E3%81%A8%E3%81%AE%E9%80%A3%E6%90%BA"><i class="fa fa-link"></i></a>gitoliteなどの他のサードパーティのソフトとの連携</h3>
+  
+  <p>それぞれの内容に従ってください。</p>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>$ git clone gitolite@&lt;hostname&gt;:&lt;projectname&gt;
+  </pre></div></div>
+  
+  <p>上記は、標準的にセットアップされたgitoliteのアクセス方法。詳しくは以下のページ参照。</p>
+  
+  <ul>
+  <li><a href="http://git-scm.com/book/ja/Git-%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC-Gitolite" class="autolink" rel="nofollow noopener" target="_blank">http://git-scm.com/book/ja/Git-%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC-Gitolite</a></li>
+  </ul>
+  
+  <h2>
+  <span id="自分用にローカルにgitリポジトリをつくる" class="fragment"></span><a href="#%E8%87%AA%E5%88%86%E7%94%A8%E3%81%AB%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%81%ABgit%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%82%92%E3%81%A4%E3%81%8F%E3%82%8B"><i class="fa fa-link"></i></a>自分用にローカルにgitリポジトリをつくる</h2>
+  
+  <p>自分用にリポジトリを作る場合は、プロジェクトのディレクトリの中で、ゴミファイルやビルド途中でできたファイルなどを削除し、以下を実行する。</p>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>$ git init
+  $ git add *
+  $ git commit -m "initial import"
+  </pre></div></div>
+  
+  <p>リポジトリを初期化し、現在あるファイルを全部登録して、コミットする手順を実行すると、初期インポートまでが完了する。</p>
+  
+  <h2>
+  <span id="ローカルで開発するときに必要な作業" class="fragment"></span><a href="#%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%81%A7%E9%96%8B%E7%99%BA%E3%81%99%E3%82%8B%E3%81%A8%E3%81%8D%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E4%BD%9C%E6%A5%AD"><i class="fa fa-link"></i></a>ローカルで開発するときに必要な作業</h2>
+  
+  <p>最も多用するコマンド群です。ローカルのみで作業している人は、「リモートリポジトリ・・・」の件は無視してよいです。</p>
+  
+  <h3>
+  <span id="変更のコミット" class="fragment"></span><a href="#%E5%A4%89%E6%9B%B4%E3%81%AE%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88"><i class="fa fa-link"></i></a>変更のコミット</h3>
+  
+  <p>いちいち、変更したファイルを登録したり、コメントをエディタを立ち上げて書くのが面倒なので、以下のコマンドに落ち着く</p>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>$ git commit -a -m "&lt;comment&gt;"
+  </pre></div></div>
+  
+  <p>-aオプションは、既に登録されたファイルで変更点があるものをすべて指定するという意味、-mオプションはその後につづく文字列をコメントとして追加する。</p>
+  
+  <h3>
+  <span id="新しく出来たファイルの登録" class="fragment"></span><a href="#%E6%96%B0%E3%81%97%E3%81%8F%E5%87%BA%E6%9D%A5%E3%81%9F%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E7%99%BB%E9%8C%B2"><i class="fa fa-link"></i></a>新しく出来たファイルの登録</h3>
+  
+  <p>開発途上でできたソースファイルや設定ファイル、ライブラリは以下のコマンドで追加する</p>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>$ git add &lt;file&gt;
+  $ git add &lt;directory&gt;
+  $ git add &lt;wildcard. e.g. *.java&gt;
+  </pre></div></div>
+  
+  <p>addの後に続くものは、ファイルやディレクトリの他にワイルドカードも使えます。</p>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>$  git add -A
+  </pre></div></div>
+  
+  <p>プロジェクトディレクトリ中に追加されたすべてのファイルを追加する場合は上記が便利。ただし、コンパイルの中間ファイルなども登録されちゃったりするので、注意。</p>
+  
+  <h3>
+  <span id="変更したファイルのコミット" class="fragment"></span><a href="#%E5%A4%89%E6%9B%B4%E3%81%97%E3%81%9F%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88"><i class="fa fa-link"></i></a>変更したファイルのコミット</h3>
+  
+  <p>git mvを用いず、エディタなどで変更したファイルの変更履歴をコミットする場合は以下を用いる．</p>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>$ git add --all &lt;target&gt;
+  </pre></div></div>
+  
+  <p>オプションをつけない場合のgit addコマンドは、省略しないと</p>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>$ git add --ignore-removal &lt;target&gt;
+  </pre></div></div>
+  
+  <p>に設定されていて、ワーキングツリーから削除されたファイルの追跡は行われないようになっているとのこと．ちなみに、疑わしき状況になるとwarningでしっかりと警告されます。以下、原文。</p>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>* 'git add --ignore-removal &lt;pathspec&gt;', which is the current default,
+    ignores paths you removed from your working tree.
+  
+  * 'git add --all &lt;pathspec&gt;' will let you also record the removals.
+  
+  Run 'git status' to check the paths you removed from your working tree.
+  </pre></div></div>
+  
+  <p>eclipseはgitプラグインがちゃんとしていないので、手動でコミットしている人はたびたびお世話になるかもしれない．</p>
+  
+  <h3>
+  <span id="ファイル権限の編集" class="fragment"></span><a href="#%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E6%A8%A9%E9%99%90%E3%81%AE%E7%B7%A8%E9%9B%86"><i class="fa fa-link"></i></a>ファイル権限の編集</h3>
+  
+  <p>うっかり実行権限を付け忘れてコミットした場合は、以下のコマンドで権限を修正可能</p>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>$ git update-index --add --chmod=&lt;options&gt; &lt;target&gt;
+  # e.g.
+  $ git update-index --add --chmod=+x &lt;target&gt;
+  </pre></div></div>
+  
+  <h3>
+  <span id="不要なファイルの削除" class="fragment"></span><a href="#%E4%B8%8D%E8%A6%81%E3%81%AA%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E5%89%8A%E9%99%A4"><i class="fa fa-link"></i></a>不要なファイルの削除</h3>
+  
+  <p>実装過程で不要になったファイルは以下のように削除できる</p>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>$ git rm &lt;target&gt;
+  $ git rm -r &lt;target dir&gt;
+  </pre></div></div>
+  
+  <p>ディレクトリ単位で削除したい場合は、-rオプションをつけると良い。中間ファイルなどを誤ってコミットしてしまった場合、--cachedオプションを使って削除すると、ローカルコピー上からは削除されず、git管理ファイルから外すことが出来る</p>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>$ git rm —cached &lt;target&gt;
+  $ git tm -r —cached &lt;target dir&gt;
+  </pre></div></div>
+  
+  <h2>
+  <span id="まだコミットしていない内容のコミット状態までのロールバックsvn-revert相当" class="fragment"></span><a href="#%E3%81%BE%E3%81%A0%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%81%97%E3%81%A6%E3%81%84%E3%81%AA%E3%81%84%E5%86%85%E5%AE%B9%E3%81%AE%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E7%8A%B6%E6%85%8B%E3%81%BE%E3%81%A7%E3%81%AE%E3%83%AD%E3%83%BC%E3%83%AB%E3%83%90%E3%83%83%E3%82%AFsvn-revert%E7%9B%B8%E5%BD%93"><i class="fa fa-link"></i></a>まだコミットしていない内容のコミット状態までのロールバック（svn revert相当）</h2>
+  
+  <p>編集中の内容からコミット済みのところまで戻りたい場合は以下のようにして、ロールバックできる。svn revertと一緒。</p>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>$ git checkout &lt;target file name&gt;
+  </pre></div></div>
+  
+  <h2>
+  <span id="リモートリポジトリとのシンク" class="fragment"></span><a href="#%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%A8%E3%81%AE%E3%82%B7%E3%83%B3%E3%82%AF"><i class="fa fa-link"></i></a>リモートリポジトリとのシンク</h2>
+  
+  <p>チームプログラミングして、自分のローカル環境と、リモートリポジトリの内容をシンクしたい場合には以下のコマンドを使います。</p>
+  
+  <h3>
+  <span id="リモートリポジトリからローカルのリポジトリへ変更を反映" class="fragment"></span><a href="#%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%8B%E3%82%89%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%81%AE%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%B8%E5%A4%89%E6%9B%B4%E3%82%92%E5%8F%8D%E6%98%A0"><i class="fa fa-link"></i></a>リモートリポジトリからローカルのリポジトリへ変更を反映</h3>
+  
+  <p>自分が寝ている間に他の小人さんがソースに加えた変更を自分のリポジトリに反映します。</p>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>$ git pull
+  </pre></div></div>
+  
+  <h3>
+  <span id="リモートリポジトリへローカルで編集した内容の反映" class="fragment"></span><a href="#%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%B8%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%81%A7%E7%B7%A8%E9%9B%86%E3%81%97%E3%81%9F%E5%86%85%E5%AE%B9%E3%81%AE%E5%8F%8D%E6%98%A0"><i class="fa fa-link"></i></a>リモートリポジトリへローカルで編集した内容の反映</h3>
+  
+  <p>ある程度ローカルで編集した内容をリモートリポジトリに反映するときに使います。</p>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>$ git push
+  </pre></div></div>
+  
+  <p>ローカルのタグのpushは</p>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>$ git push --tags
+  $ git push origin &lt;tagname&gt;
+  </pre></div></div>
+  
+  <h3>
+  <span id="ブランチで作業しているときのpushとpull" class="fragment"></span><a href="#%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%A7%E4%BD%9C%E6%A5%AD%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%81%A8%E3%81%8D%E3%81%AEpush%E3%81%A8pull"><i class="fa fa-link"></i></a>ブランチで作業しているときのpushとpull</h3>
+  
+  <h4>
+  <span id="remoteのブランチへの変更を取得するとき" class="fragment"></span><a href="#remote%E3%81%AE%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%B8%E3%81%AE%E5%A4%89%E6%9B%B4%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%E3%81%A8%E3%81%8D"><i class="fa fa-link"></i></a>remoteのブランチ（への変更）を取得するとき</h4>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>$ git pull origin &lt;branchname&gt;
+  $ git checkout &lt;branchname&gt;
+  </pre></div></div>
+  
+  <p>checkoutは、まだそのブランチに移行していないとき実行する。すでにそのブランチで作業しているときはいらない。</p>
+  
+  <h4>
+  <span id="ブランチのremoteへのpush" class="fragment"></span><a href="#%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AEremote%E3%81%B8%E3%81%AEpush"><i class="fa fa-link"></i></a>ブランチのremoteへのpush</h4>
+  
+  <p>ブランチのpushは以下で実行する。</p>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>$ git push origin &lt;branchname&gt;
+  </pre></div></div>
+  
+  <p>基本的には、</p>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>$ git push/pull origin &lt;tagname&gt;
+  </pre></div></div>
+  
+  <p>だということさえ覚えておけば、後の開発方法は一緒である。自分がいま、どのブランチで作業しているかは以下を実行して調べられる。</p>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>$ git branch
+  </pre></div></div>
+  
+  <h1>
+  <span id="知っておくと便利だけどだいたい使わず忘れるコマンド" class="fragment"></span><a href="#%E7%9F%A5%E3%81%A3%E3%81%A6%E3%81%8A%E3%81%8F%E3%81%A8%E4%BE%BF%E5%88%A9%E3%81%A0%E3%81%91%E3%81%A9%E3%81%A0%E3%81%84%E3%81%9F%E3%81%84%E4%BD%BF%E3%82%8F%E3%81%9A%E5%BF%98%E3%82%8C%E3%82%8B%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89"><i class="fa fa-link"></i></a>知っておくと便利だけど、だいたい使わず忘れるコマンド</h1>
+  
+  <h2>
+  <span id="アーカイブの作成" class="fragment"></span><a href="#%E3%82%A2%E3%83%BC%E3%82%AB%E3%82%A4%E3%83%96%E3%81%AE%E4%BD%9C%E6%88%90"><i class="fa fa-link"></i></a>アーカイブの作成</h2>
+  
+  <p>配布物をつくるときは以下のコマンドを使います。svn exportとだいたい同じ。</p>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>$ git archive --format=tar --prefix=&lt;dir/&gt; HEAD | gzip &gt; &lt;path/to/repo.tar.gz&gt;
+  $ git archive --format=tar --prefix=&lt;dir/&gt; HEAD | bzip2 &gt; &lt;path/to/repo.tar.bz2&gt;
+  </pre></div></div>
+  
+  <p>prefixには、archiveが解凍されたときのディレクトリ名が、にはtarballのパスが入ります。</p>
+  
+  <h2>
+  <span id="タグの作成とタグづけされた状態への移行" class="fragment"></span><a href="#%E3%82%BF%E3%82%B0%E3%81%AE%E4%BD%9C%E6%88%90%E3%81%A8%E3%82%BF%E3%82%B0%E3%81%A5%E3%81%91%E3%81%95%E3%82%8C%E3%81%9F%E7%8A%B6%E6%85%8B%E3%81%B8%E3%81%AE%E7%A7%BB%E8%A1%8C"><i class="fa fa-link"></i></a>タグの作成とタグづけされた状態への移行</h2>
+  
+  <h3>
+  <span id="タグの一覧" class="fragment"></span><a href="#%E3%82%BF%E3%82%B0%E3%81%AE%E4%B8%80%E8%A6%A7"><i class="fa fa-link"></i></a>タグの一覧</h3>
+  
+  <p>以下のコマンドで一覧を見ることが出来ます。</p>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>$ git tag
+  </pre></div></div>
+  
+  <h3>
+  <span id="タグの作成" class="fragment"></span><a href="#%E3%82%BF%E3%82%B0%E3%81%AE%E4%BD%9C%E6%88%90"><i class="fa fa-link"></i></a>タグの作成</h3>
+  
+  <p>タグの作成。オプション付きだけど、以下のセットが便利です。</p>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>$ git tag -a &lt;tagname&gt; -m &lt;comment&gt;
+  </pre></div></div>
+  
+  <p>tagnameにはタグの名前（たいてい、"v0.0.X"のような文字列が入ります）。commentにはコメントが入ります。</p>
+  
+  <h3>
+  <span id="タグの反映" class="fragment"></span><a href="#%E3%82%BF%E3%82%B0%E3%81%AE%E5%8F%8D%E6%98%A0"><i class="fa fa-link"></i></a>タグの反映</h3>
+  
+  <p>クローンしてきたリポジトリをタグ付けされた状態に戻すときに使います。</p>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>$ git checkout refs/tags/&lt;tagname&gt;
+  </pre></div></div>
+  
+  <h2>
+  <span id="管理されているファイルの一覧を見る" class="fragment"></span><a href="#%E7%AE%A1%E7%90%86%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E4%B8%80%E8%A6%A7%E3%82%92%E8%A6%8B%E3%82%8B"><i class="fa fa-link"></i></a>管理されているファイルの一覧を見る</h2>
+  
+  <p>初期のインポート時に、全部インポートしたか確認するときなどに便利．</p>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>$ git ls-files
+  </pre></div></div>
+  
+  <h2>
+  <span id="ブランチの作り方" class="fragment"></span><a href="#%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AE%E4%BD%9C%E3%82%8A%E6%96%B9"><i class="fa fa-link"></i></a>ブランチの作り方</h2>
+  
+  <h3>
+  <span id="ブランチの確認" class="fragment"></span><a href="#%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AE%E7%A2%BA%E8%AA%8D"><i class="fa fa-link"></i></a>ブランチの確認</h3>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>$ git branch
+  </pre></div></div>
+  
+  <h3>
+  <span id="ブランチの作成" class="fragment"></span><a href="#%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AE%E4%BD%9C%E6%88%90"><i class="fa fa-link"></i></a>ブランチの作成</h3>
+  
+  <p>&lt;new branch name&gt;という名前のブランチを作成します。</p>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>$ git checkout -b &lt;new branch name&gt;
+  </pre></div></div>
+  
+  <h3>
+  <span id="リモートブランチの取得" class="fragment"></span><a href="#%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AE%E5%8F%96%E5%BE%97"><i class="fa fa-link"></i></a>リモートブランチの取得</h3>
+  
+  <p>リモートブランチの取得は以下のコマンドから実行する。git pullするとすごいことになるので、checkoutでやったほうが良い。</p>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>$ git checkout -b &lt;same branch name with remote&gt; origin/&lt;remote branch name&gt;
+  </pre></div></div>
+  
+  <p>たとえば、developというリモートブランチがある場合、</p>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>$ git checkout -b develop origin/develop
+  </pre></div></div>
+  
+  <p>となる。</p>
+  
+  <h3>
+  <span id="ブランチの切り替え" class="fragment"></span><a href="#%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AE%E5%88%87%E3%82%8A%E6%9B%BF%E3%81%88"><i class="fa fa-link"></i></a>ブランチの切り替え</h3>
+  
+  <p>&lt;branch name&gt;というブランチに切り替えます（そのブランチ名がない場合は作成します）</p>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>$ git checkout &lt;branch name&gt;
+  </pre></div></div>
+  
+  <h3>
+  <span id="ブランチの削除" class="fragment"></span><a href="#%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AE%E5%89%8A%E9%99%A4"><i class="fa fa-link"></i></a>ブランチの削除</h3>
+  
+  <p>&lt;the branch name to be removed.&gt;という名前のブランチを削除します。</p>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>$ git branch -d &lt;the branch name to be removed.&gt;
+  </pre></div></div>
+  
+  <h3>
+  <span id="リモートリポジトリへの反映" class="fragment"></span><a href="#%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%B8%E3%81%AE%E5%8F%8D%E6%98%A0"><i class="fa fa-link"></i></a>リモートリポジトリへの反映</h3>
+  
+  <p>リモートリポジトリにブランチ&lt;branch name to be updated.&gt;をpushします。</p>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>$ git commit -a -m “comments”
+  …
+  $ git push origin &lt;branch name to be updated.&gt;
+  </pre></div></div>
+  
+  <p>githubのpullリクエストでよく使うので、覚えておきましょう。</p>
+  
+  <h2>
+  <span id="githubとの密な連携" class="fragment"></span><a href="#github%E3%81%A8%E3%81%AE%E5%AF%86%E3%81%AA%E9%80%A3%E6%90%BA"><i class="fa fa-link"></i></a>githubとの密な連携</h2>
+  
+  <p>githubとの連携をするなら、github拡張のhubを利用すると良い。コマンドラインからpull requestを行うなど、より密にgithubと連携できる。</p>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>## OSX
+  $ brew install hub
+  </pre></div></div>
+  
+  <p>インストールはOSXなら上記のコマンドで、他のOSならバイナリが以下から入手できる．</p>
+  
+  <ul>
+  <li><a href="https://github.com/github/hub/releases" class="autolink" rel="nofollow noopener" target="_blank">https://github.com/github/hub/releases</a></li>
+  </ul>
+  
+  <p>その後、.bash_profileに以下を設定すると、hubコマンドとしてgitを使用できる。</p>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>eval "$(hub alias -s)"
+  </pre></div></div>
+  
+  <p>以下は新たに追加されるコマンドの一部</p>
+  
+  <div class="code-frame" data-lang="text"><div class="highlight"><pre><span></span>## clone
+  $ git clone hoge/geho
+  &gt; git clone https://github.com/hoge/geho.git
+  ## pull-request
+  $ git pull-request
+  </pre></div></div>
+  
+'''
+tags: [
+  "git"
+]
+isStarred: false
+isTrashed: false
