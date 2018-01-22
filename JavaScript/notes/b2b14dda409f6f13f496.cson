@@ -1,0 +1,110 @@
+type: "SNIPPET_NOTE"
+folder: "b4c8dac7c4ee0cfe9bb4"
+title: "Actions,Mutations,それぞれの呼び方"
+description: '''
+  Actions,Mutations,それぞれの呼び方
+  
+  Actions: dispatchを使って呼ぶ。
+  Mutations:commitを使って呼ぶ。
+  
+'''
+snippets: [
+  {
+    name: "test.js"
+    mode: "JavaScript"
+    content: '''
+      import Vue from 'vue'
+      // ストアをインポートすることでVuexと連携させる。
+      import store from './store/'
+      
+      
+      const app = new Vue({
+        el: '#app',
+        computed: {
+          count () {
+      	    return store.state.count
+          }
+        },
+        methods: {
+          increment () {
+             store.dispatch('increment',1)
+          },
+          decrement () {
+          	store.commit('decrement',1)
+          }
+        }
+      })
+      
+      const app2 = new Vue({
+        el: '#app2',
+        computed: {
+          count () {
+      	    return store.state.count
+          }
+        },
+        methods: {
+          increment () {
+            store.commit('increment',2)
+          },
+          decrement () {
+          	store.commit('decrement',2)
+          }
+        }
+      })
+    '''
+  }
+  {
+    name: "store/index.js"
+    mode: "JavaScript"
+    content: '''
+      import Vue from 'vue'
+      import Vuex from 'vuex'
+      import mutations from './mutations.js'
+      import actions from './actions.js'
+      
+      Vue.use(Vuex);
+      
+      const state = {
+          count: 0
+      }
+      
+      export default new Vuex.Store({
+        state,
+        actions,
+        mutations
+      })
+      
+    '''
+  }
+  {
+    name: "store/actions.js"
+    mode: "JavaScript"
+    content: '''
+      export default {
+      	increment (context,num) {
+            context.commit('increment', 3)
+          }
+      }
+    '''
+  }
+  {
+    name: "store/mutations.js"
+    mode: "JavaScript"
+    content: '''
+      export default {
+        increment(state , addnum){
+      	  state.count = state.count + addnum
+        },
+        decrement(state , addnum){
+      	  state.count = state.count - addnum
+        }
+      }
+    '''
+  }
+]
+tags: [
+  "vuex"
+]
+isStarred: false
+createdAt: "2017-07-06T01:26:47.981Z"
+updatedAt: "2017-07-06T01:36:03.837Z"

@@ -1,0 +1,14 @@
+type: "MARKDOWN_NOTE"
+folder: "9c866f10d427be4a495c"
+title: "費用便益分析法"
+content: '''
+  費用便益分析法
+  費用便益分析法とは、プロジェクトがもたらす金銭的価値とプロジェクトの導入費用を比較する手法になります。
+  BCR（Benefit Cost Ratio）やBCA（Benefit Cost Analysis）で表記されます。計算式は以下の通りです。
+  BCR(%) = Benefit（収入） × 100 / Cost（費用）
+  BCRが1.o以上であれば、初期投資額を回収できると判断されます。
+'''
+tags: []
+isStarred: false
+createdAt: "2017-04-28T01:48:34.941Z"
+updatedAt: "2017-04-28T01:48:36.455Z"

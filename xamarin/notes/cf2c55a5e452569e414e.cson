@@ -1,0 +1,14 @@
+type: "MARKDOWN_NOTE"
+folder: "a480f3b8fb4d654ffde7"
+title: "MVVMとは"
+content: '''
+  MVVMとは
+  　MVVMパターンは、Model／View／ViewModelの3つの責務にGUIアプリケーションを分割するパターンです。「ビジネス・ロジックとプレゼンテーション・ロジックを分割する」という目的とともに、開発者がUIデザイナーと協業でアプリケーションを作っていく未来を見据えたパターンでもあります。ViewはViewModelに依存し、ViewModelはModelに依存します。逆方向の依存はありません
+   
+   MVVMはフレイムワーク的な物っぽい
+   
+'''
+tags: []
+isStarred: false
+createdAt: "2017-04-12T01:25:40.424Z"
+updatedAt: "2017-04-20T07:27:36.778Z"

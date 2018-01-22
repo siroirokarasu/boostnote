@@ -1,0 +1,84 @@
+type: "SNIPPET_NOTE"
+folder: "b4c8dac7c4ee0cfe9bb4"
+title: "コンポーネント　リスト作成"
+description: '''
+  コンポーネント　リスト作成
+  
+  使用例
+  Vue.component('list', require('./components/List.vue'));
+'''
+snippets: [
+  {
+    name: "List.vue"
+    mode: "text"
+    content: '''
+      <template>
+        <div id="list">
+            <div>
+                <input type="text" v-model="inputTitle">
+                <button @click="addItem">追加</button>
+            </div>
+            <ul>
+                <item v-for="item in items" :item="item"></item>
+            </ul>
+        </div>
+      </template>
+      <script>
+      import Item from './Item.vue';
+      export default {
+          name: 'list',
+          components: { Item },
+          data () {
+              return {
+                  inputTitle: "",
+                  items: [
+                      {is_do: false, title: 'タスク1'},
+                      {is_do: true, title: 'タスク2'},
+                      {is_do: false, title: 'タスク3'}
+                  ]
+              }
+          },
+          methods: {
+              addItem() {
+                  this.items.push({
+                      title: this.inputTitle,
+                      is_do: false
+                  });
+              }
+          }
+      }
+      </script>
+    '''
+  }
+  {
+    name: "Item.vue"
+    mode: "Plain Text"
+    content: '''
+      <template>
+          <li v-bind:class="{ 'is-do': item.is_do }" @click="done(item)">{{ item.title }}</li>
+      </template>
+      <script>
+      export default {
+          props: ['item'],
+          methods: {
+              done(item) {
+                  item.is_do = !item.is_do;
+              }
+          }
+      }
+      </script>
+      <style lang="scss" scoped>
+      li {
+          cursor: pointer;
+      }
+      li.is-do {
+          text-decoration: line-through;
+      }
+      </style>
+    '''
+  }
+]
+tags: []
+isStarred: false
+createdAt: "2017-06-12T06:12:51.180Z"
+updatedAt: "2017-06-12T06:14:52.268Z"

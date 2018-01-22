@@ -1,0 +1,37 @@
+type: "SNIPPET_NOTE"
+folder: "b4c8dac7c4ee0cfe9bb4"
+title: "new Vueの入れ子　IDの入れ子"
+description: "new Vueの入れ子　IDの入れ子"
+snippets: [
+  {
+    name: "test.html"
+    mode: "HTML"
+    content: '''
+      <div id="outer">
+        {{ hoge }}
+        <div id="inner" v-pre>
+          {{ piyo }}
+        </div>
+      </div>
+    '''
+  }
+  {
+    name: "test.js"
+    mode: "JavaScript"
+    content: '''
+      var vOuter = new Vue({
+        el: "#outer",
+        data: { hoge: 42 },
+      });
+      var vInner = new Vue({
+        el: "#inner",
+        data: { piyo: 123 },
+      });
+      
+    '''
+  }
+]
+tags: []
+isStarred: false
+createdAt: "2017-07-13T00:57:10.472Z"
+updatedAt: "2017-07-13T00:58:04.812Z"

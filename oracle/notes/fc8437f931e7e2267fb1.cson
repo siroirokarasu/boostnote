@@ -1,0 +1,18 @@
+type: "MARKDOWN_NOTE"
+folder: "f282083b299efec6c76d"
+title: "DB文字コード変更"
+content: '''
+  DB文字コード変更
+  root@localhost # su - oracle
+  oracle@localhost $ sqlplus / as sysdba
+  SQL> shutdown immediate
+  SQL> startup restrict mount
+  SQL> drop database;
+  SQL> quit
+  
+  oracle@localhost $ createdb.sh -dbchar JA16SJIS
+'''
+tags: []
+isStarred: false
+createdAt: "2017-05-22T06:38:10.984Z"
+updatedAt: "2017-05-22T06:38:19.333Z"

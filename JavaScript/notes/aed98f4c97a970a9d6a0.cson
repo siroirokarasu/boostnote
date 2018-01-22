@@ -1,0 +1,14 @@
+type: "MARKDOWN_NOTE"
+folder: "0c2c9cdedc7714162967"
+title: "Riot はこれまでの UI ライブラリと比べて以下の点で異なります。"
+content: '''
+  Riot はこれまでの UI ライブラリと比べて以下の点で異なります。
+  
+  必要最小限の API
+  少ないボイラープレート
+  Web Components ( HTML Template ) に似た文法
+'''
+tags: []
+isStarred: false
+createdAt: "2017-06-06T06:41:39.554Z"
+updatedAt: "2017-06-06T06:41:45.051Z"

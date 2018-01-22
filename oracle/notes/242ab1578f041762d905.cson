@@ -1,0 +1,13 @@
+type: "MARKDOWN_NOTE"
+folder: "f282083b299efec6c76d"
+title: "表示表域作成"
+content: '''
+  表示表域作成
+  CREATE TABLESPACE INDX
+   DATAFILE 'testLpg.dbf' SIZE 100M;
+  
+'''
+tags: []
+isStarred: false
+createdAt: "2017-05-22T06:39:18.595Z"
+updatedAt: "2017-05-22T06:39:24.489Z"

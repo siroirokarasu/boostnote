@@ -1,0 +1,28 @@
+type: "SNIPPET_NOTE"
+folder: "06c0e01fca5283dbc40e"
+title: "はみ出した文字を表示しない方法"
+description: "はみ出した文字を表示しない方法"
+snippets: [
+  {
+    name: ".html"
+    mode: "HTML"
+    content: '''
+      <!--はみ出した分を消すにはsytle属性で「overflow:hidden」を
+      使います。-->
+      
+      <table border="1" width="60px" style="table-layout:fixed;">
+      <tr>
+          <td width="30px"><div style="overflow:hidden;">ABCDEFGHIJK</div></td><td width="30px">ab</td>
+      </tr>
+      </table>
+      
+      <!--注意事項としてはtdタグには「overflow:hidden」が効かないので
+      divタグを使う必要があります。-->
+      
+    '''
+  }
+]
+tags: []
+isStarred: false
+createdAt: "2017-09-01T02:22:26.008Z"
+updatedAt: "2017-09-01T02:24:00.568Z"

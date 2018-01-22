@@ -1,0 +1,40 @@
+type: "SNIPPET_NOTE"
+folder: "b4c8dac7c4ee0cfe9bb4"
+title: "単体の選択:"
+description: '''
+  単体の選択:
+  v-model の式の初期値がオプションの一致しない場合、<select> 要素は “未選択” の状態で描画されます。iOS ではこの場合、iOS が change イベントを発生させないため、最初のアイテムを選択できなくなります。したがって、上記の例に示すように、空の値で無効なオプションを指定することを推奨します。
+'''
+snippets: [
+  {
+    name: "test.html"
+    mode: "HTML"
+    content: '''
+      <div id="app">
+      <select v-model="selected">
+        <option disabled value="">Please select one</option>
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+      </select>
+      <span>Selected: {{ selected }}</span>
+      </div>
+    '''
+  }
+  {
+    name: "test.js"
+    mode: "JavaScript"
+    content: '''
+      new Vue({
+        el: 'app',
+        data: {
+          selected: ''
+        }
+      })
+    '''
+  }
+]
+tags: []
+isStarred: false
+createdAt: "2017-06-12T02:44:29.892Z"
+updatedAt: "2017-06-12T04:26:28.841Z"

@@ -1,0 +1,95 @@
+type: "SNIPPET_NOTE"
+folder: "2666698b0aca4e6675e5"
+title: "Controller"
+description: '''
+  Controller
+  
+'''
+snippets: [
+  {
+    name: "sample.php"
+    mode: "PHP"
+    content: '''
+      <?php
+      // 1クラス定義
+      class Controller_Sample extends Controller{
+        // 2一覧を表示するindexメソッドを定義
+        public function action_index(){
+          $data = array();
+          $data['rows'] = Model_User::find_all(); // userテーブル内の全レコードをビューに渡す
+          return View::forge('sample/list', $data); // テンプレートと変数を渡してViewを生成
+        }
+      
+        // 3入力画面を表示
+        public function action_form(){
+          return View::forge('sample/form'); // テンプレートを指定
+        }
+      
+        // 4Formで送信されたデータを保存
+        public function action_save(){
+          // 5バリデーション定義
+          $validation = Validation::forge();
+          $validation->add('name', 'お名前')->add_rule('required'); // 名前の入力を必須に
+          $validation->add('email', 'email')->add_rule('required'); // メールの入力を必須に
+          $validation->add('age', 'Number')
+            ->add_rule('required')
+            ->add_rule('valid_string', array('numeric')); // 年齢の入力は必須かつ数値
+      
+          if (Input::post()) {
+            // 6バリデーションOK時の処理
+            if ($validation->run()) {
+              $form = array();
+              $form['name'] = Input::post('name'); // パラメータを取得テーブル
+              $form['email'] = Input::post('email'); // テーブルのカラムと値がセットになるように
+              // 7O/Rマッパー
+              $user = Model_User::forge();
+              $user->set($form); // カラムに値をセット
+              $user->save(); // 保存
+              // 8sample/indexを実行し、画面に表示
+              echo Request::forge("sample/index")->execute();
+              exit;
+            }else{
+              // 9エラーがあるときは入力画面に戻す
+              $view = View::forge('sample/form');
+              $view->set('errors', $validation->error());
+            }
+          }
+          return $view;
+        }
+      }
+      }
+    '''
+  }
+  {
+    name: "説明"
+    mode: "Plain Text"
+    content: '''
+      Controllerは、APPPATH/classes/cntrollerに配置します。クラスを作成する際の命名規則はリスト96-1のとおりです
+      コードを右端で折り返す（全記事共通）
+      PHP
+      
+      class Controller_ディレクトリ名_ディレクトリ名_クラス名 extends Controller
+      リスト96-1　Controllerクラス作成の命名規則
+      　必ずControllerクラスを継承し、APPPATH/classes/cntrolerからクラスファイルまでのディレクトリを1文字目を大文字にして「_」でつないで最後にクラス名を1文字目を大文字にして命名します。APPPATH/classes/cntroler直下にクラスを配置する場合は、ディレクトリ名はつけずにそのままクラス名で構いません。
+      　URLからコントローラを呼び出す際には、/ディレクトリ名/クラス名/メソッド名/パラメータ となり、その関係は図96-4のとおりです。
+       
+      
+      　ディレクトリ名、クラス名、メソッド名までつなげて、パラメータがある場合はパラメータも記載します。パラメータはそのままメソッドの引数となります。メソッド名がindexの場合は、メソッド名を省略することもできます。サンプルの例であれば、入力画面を表示するURLはhttp://localhost/sample/formとなります。
+      　リスト96-2は作成するサンプルのデータベース内のusersテーブルの一覧を表示／フォームによる登録を行うコントローラのコードです。
+      　クラス定義を行った後、index（一覧）、form（入力）、save（保存）の各メソッドを定義します（1）。
+      　一覧を表示するaction_indexメソッドでは、O/RマッパーのModel_Userクラスのfind_allメソッドで、全レコードを取得し、Viewに渡します（2）。Viewは、Viewクラスのforgeメソッドに、テンプレートとなるファイルと表示する変数を渡します。変数は配列の形式で渡します。
+      　入力画面（図96-5）を表示するaction_formメソッドは、とくに渡すデータはないのでテンプレートのみでViewを生成します。
+       
+      
+      図96-5　生成した入力画面
+      　入力された値を保存するaction_saveメソッド（4）では、まず入力画面のバリデーションを行います（5）。バリデーションを定義するValidationクラスのインスタンスを生成し、addメソッドでformの項目を指定、add_ruleメソッドでバリデーションを行う際の条件を指定します。バリデーションの条件が複数存在する場合は、add_ruleメソッドで続けて指定します。
+      　バリデーションはrun()メソッドで実行でき、通過したかどうかはtrue／falseで得られます（6）。通過した場合は、O/Rマッパーのインスタンスを生成し、formから受け取った値を保存します（7）。その後、sample/indexのアクションを実行し、一覧画面を表示します（8）。バリデーションを通過しない場合は、戻すビューを指定して、バリデーションのエラーメッセージを渡します（9）。
+      　FuelPHPの特徴として、クラスを初期化する際にはforgeメソッドが利用されることが多いです。
+      　リスト96-3は既定で呼び出されるアクションとメソッドを定義する例です。APPPATH/classes/cntroler/route.phpに記述します。
+    '''
+  }
+]
+tags: []
+isStarred: false
+createdAt: "2017-05-02T05:36:42.109Z"
+updatedAt: "2017-05-02T05:39:32.695Z"

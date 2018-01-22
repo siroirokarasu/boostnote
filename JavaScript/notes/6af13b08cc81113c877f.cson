@@ -1,0 +1,74 @@
+type: "SNIPPET_NOTE"
+folder: "b4c8dac7c4ee0cfe9bb4"
+title: "JavaScriptアプリケーションのブートストラップ"
+description: '''
+  JavaScriptアプリケーションのブートストラップ
+  resources/assets/js/bootstrap.js に、JavaScriptアプリケーションを動作させるのに必要な初期化処理を記述します。
+  ほとんどライブラリを読み込んでいるだけですが、1つ興味深い処理が行われています。
+  
+  window.axios.defaults.headers.common = {
+      'X-CSRF-TOKEN': window.Laravel.csrfToken,
+      'X-Requested-With': 'XMLHttpRequest'
+  };
+  
+  axiosは、HTTPクライアントのライブラリです。
+  ここでは、axoisの設定を変更し、リクエストヘッダにCSRFトークンと、XMLHttpRequestの目印を付けるようにしています。
+  このようにすることで、axiosを使って送られたリクエストに自動的にCSRFトークンが付与されるようになります。
+'''
+snippets: [
+  {
+    name: "bootstrap.js"
+    mode: "JavaScript"
+    content: '''
+      window._ = require('lodash');
+       
+      /**
+       * We'll load jQuery and the Bootstrap jQuery plugin which provides support
+       * for JavaScript based Bootstrap features such as modals and tabs. This
+       * code may be modified to fit the specific needs of your application.
+       */
+       
+      window.$ = window.jQuery = require('jquery');
+       
+      require('bootstrap-sass');
+       
+      /**
+       * Vue is a modern JavaScript library for building interactive web interfaces
+       * using reactive data binding and reusable components. Vue's API is clean
+       * and simple, leaving you to focus on building your next great project.
+       */
+       
+      window.Vue = require('vue');
+       
+      /**
+       * We'll load the axios HTTP library which allows us to easily issue requests
+       * to our Laravel back-end. This library automatically handles sending the
+       * CSRF token as a header based on the value of the "XSRF" token cookie.
+       */
+       
+      window.axios = require('axios');
+       
+      window.axios.defaults.headers.common = {
+          'X-CSRF-TOKEN': window.Laravel.csrfToken,
+          'X-Requested-With': 'XMLHttpRequest'
+      };
+       
+      /**
+       * Echo exposes an expressive API for subscribing to channels and listening
+       * for events that are broadcast by Laravel. Echo and event broadcasting
+       * allows your team to easily build robust real-time web applications.
+       */
+       
+      // import Echo from "laravel-echo"
+       
+      // window.Echo = new Echo({
+      //     broadcaster: 'pusher',
+      //     key: 'your-pusher-key'
+      // });
+    '''
+  }
+]
+tags: []
+isStarred: false
+createdAt: "2017-06-12T06:18:36.337Z"
+updatedAt: "2017-06-12T06:19:12.072Z"

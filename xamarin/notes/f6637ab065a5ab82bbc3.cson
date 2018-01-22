@@ -1,0 +1,33 @@
+type: "SNIPPET_NOTE"
+folder: "3794a3ea40fb556f6249"
+title: "ステータスバー非表示"
+description: '''
+  ステータスバー非表示
+  
+'''
+snippets: [
+  {
+    name: "MainActivity.cs"
+    mode: "C#"
+    content: '''
+      protected override void OnCreate(Bundle bundle)
+              {
+                  TabLayoutResource = Resource.Layout.Tabbar;
+                  ToolbarResource = Resource.Layout.Toolbar;
+      
+      
+                  base.OnCreate(bundle);
+                  
+                  global::Xamarin.Forms.Forms.Init(this, bundle);
+                  LoadApplication(new App());
+                  // この子を記載する。
+                  base.Window.AddFlags( WindowManagerFlags.Fullscreen);
+               }
+      }
+    '''
+  }
+]
+tags: []
+isStarred: false
+createdAt: "2017-04-20T02:46:17.538Z"
+updatedAt: "2017-04-20T07:29:48.768Z"

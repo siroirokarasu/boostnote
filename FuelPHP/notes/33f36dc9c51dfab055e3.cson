@@ -1,0 +1,61 @@
+type: "SNIPPET_NOTE"
+folder: "31d619055971da0c3b8d"
+title: "動的にファイルロード"
+description: '''
+  動的にファイルロード
+  
+  ディレクトリ構成は
+  　fuel
+  　　└app
+  　　　└tasks
+  　　　　　├taskone.php
+  　　　　　└thetask.php
+'''
+snippets: [
+  {
+    name: "thetask.php"
+    mode: "PHP"
+    content: '''
+      <?php
+      namespace Fuel\\Tasks;
+       
+      class TheTask
+      {
+          public static function run()
+          {
+              # tasksディレクトリの中からTaskOneに対応するファイルを探し、そのパスを取得
+              $file = \\Finder::search('tasks', strtolower('TaskOne'));
+       
+              # TaskOneのファイルをロード
+              require_once $file;
+       
+              # TaskOneを実行
+              TaskOne::run();
+       
+              return 0;
+          }
+      }
+    '''
+  }
+  {
+    name: "taskone.php"
+    mode: "PHP"
+    content: '''
+      <?php
+      namespace Fuel\\Tasks;
+       
+      class TaskOne
+      {
+          public static function run()
+          {
+              \\Cli::write('sugoi');
+              return 0;
+          }
+      }
+    '''
+  }
+]
+tags: []
+isStarred: false
+createdAt: "2017-05-02T05:57:00.518Z"
+updatedAt: "2017-05-02T05:58:05.069Z"

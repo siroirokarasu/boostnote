@@ -1,0 +1,30 @@
+{
+  "folders": [
+    {
+      "key": "0c2c9cdedc7714162967",
+      "color": "#bd10e0",
+      "name": "Riot"
+    },
+    {
+      "key": "38e85fe1cbf99c2a6c82",
+      "color": "#B013A4",
+      "name": "React"
+    },
+    {
+      "key": "b4c8dac7c4ee0cfe9bb4",
+      "color": "#2BA5F7",
+      "name": "Vue.js"
+    },
+    {
+      "key": "01bf3f00a4ee056edb6e",
+      "color": "#30D5C8",
+      "name": "ソース"
+    },
+    {
+      "key": "5975f3ad0d9cd822be7a",
+      "color": "#E10051",
+      "name": "jQuery"
+    }
+  ],
+  "version": "1.0"
+}

@@ -1,0 +1,35 @@
+type: "MARKDOWN_NOTE"
+folder: "2666698b0aca4e6675e5"
+title: "ディレクトリ構成"
+content: '''
+  ディレクトリ構成
+  
+  	fuelphp
+  	┣ docs                 …公式ドキュメント英語版
+  	┣ fuel
+  	┃  ┣ app               …アプリケーションを配置
+  	┃  ┃ ┣ cache           … キャッシュフォルダ
+  	┃  ┃ ┣ classes         … クラスを配置
+  	┃  ┃ ┃　┣ controller   … コントローラを配置
+  	┃  ┃ ┃　┣ model        … モデルを配置
+  	┃  ┃ ┃　┗ view         … ビューモデルを配置
+  	┃  ┃ ┣ config          … 設定ファイルを配置
+  	┃  ┃ ┣ lang            … 言語ファイルを配置
+  	┃  ┃ ┣ logs            … ログフォルダ
+  	┃  ┃ ┣ migrations      … マイグレーションファイルを配置
+  	┃  ┃ ┣ modules         … モジュールを配置
+  	┃  ┃ ┣ tasks           … タスクを配置
+  	┃  ┃ ┣ tmp             … tmpフォルダ
+  	┃  ┃ ┣ vendor          … サードパーティライブラリを配置
+  	┃  ┃ ┗ views           … ビューを配置
+  	┃  ┣ core              … FuelPHPの本体
+  	┃  ┣ packages          … FuelPHPのパッケージ
+  	┃  ┗ vendor            … サードパーティー
+  	┗ public               … Web公開領域
+  	    ┣ assets           … img,css,jsあり
+  	    ┗ index.php
+'''
+tags: []
+isStarred: false
+createdAt: "2017-05-02T05:05:43.444Z"
+updatedAt: "2017-05-02T05:05:45.062Z"

@@ -1,0 +1,13 @@
+type: "MARKDOWN_NOTE"
+folder: "3794a3ea40fb556f6249"
+title: "Xamarin.Androidでタイトルバーを消す"
+content: '''
+  Xamarin.Androidでタイトルバーを消す
+  SetContentView (Resource.Layout.Main);　の前に
+  RequestWindowFeature(WindowFeatures.NoTitle);　を記述
+  
+'''
+tags: []
+isStarred: false
+createdAt: "2017-04-21T01:53:12.837Z"
+updatedAt: "2017-04-21T02:48:48.562Z"

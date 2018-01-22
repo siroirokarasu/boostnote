@@ -1,0 +1,17 @@
+type: "MARKDOWN_NOTE"
+folder: "a480f3b8fb4d654ffde7"
+title: "Monoとは"
+content: '''
+  Monoとは
+  　Monoとはマルチプラットフォーム
+  　　　　Monoについて:http://www.buildinsider.net/small/multitarget/02
+  　　　　Linux (Android)、macOS、iOS、Solaris、BSD（OpenBSD、FreeBSD、NetBSD）、Windows、Wii、PlayStation 3で動作する。
+  　　　　特定プラットフォーム向けに特化したサブプロジェクトも存在する。
+  　　　　　Xamarin.iOS　iPhonやiPad,iPod touchといったiOS
+  　　　　　MonoTouchの技術を応用し、Mac OS Xへのネイティブ対応を行うMonoMacプロジェクトも2010年に発表された。
+  　　　オープンソースプロジェクトによる　.NET Framework互換環境の実装。
+'''
+tags: []
+isStarred: false
+createdAt: "2017-04-05T00:35:02.798Z"
+updatedAt: "2017-04-20T07:27:20.790Z"

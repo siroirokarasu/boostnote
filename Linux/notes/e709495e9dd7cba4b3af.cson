@@ -1,0 +1,29 @@
+type: "MARKDOWN_NOTE"
+folder: "bdc7fcb8e15f6e8ed72c"
+title: "sentosにオラクルを入れる"
+content: '''
+  sentosにオラクルを入れる
+  rootでログインする。
+  	rpm -ivh oracle-xe-11.2.0-1.0.x86_64.rpm
+  		オラクルをインストールする。
+  	/etc/init.d/oracle-xe configure
+  		パスワード以外はエンターキーを押してOK
+  	. /u01/app/oracle/product/11.2.0/xe/bin/oracle_env.sh
+  oracleでログイン
+  	cp /etc/skel/.bash_profile /u01/app/oracle/
+  	cp /etc/skel/.bashrc /u01/app/oracle/
+  	. /u01/app/oracle/product/11.2.0/xe/bin/oracle_env.sh
+  	export ORACLE_BASE=/u01/app/oracle
+  	export LD_LIBRARY_PATH=$ORACLE_HOME/lib/:/lib:/usr/lib
+  	export NLS_LANG=Japanese_Japan.JA16SJIS
+  	export NLS_DATE_FORMAT='YYYY/MM/DD HH24:MI:SS'
+  	. /u01/app/oracle/product/11.2.0/xe/bin/oracle_env.sh
+  rootでログイン
+  	lsnrctl start
+  	service iptables stop
+  		ファイヤーウォールを止める
+'''
+tags: []
+isStarred: false
+createdAt: "2017-05-22T06:38:40.353Z"
+updatedAt: "2017-05-22T06:38:42.043Z"

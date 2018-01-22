@@ -1,0 +1,77 @@
+type: "SNIPPET_NOTE"
+folder: "b4c8dac7c4ee0cfe9bb4"
+title: "子から親の変数参照"
+description: '''
+  子から親の変数参照
+  コンポーネントにv-modelを引数で渡したときの処理
+  
+  
+'''
+snippets: [
+  {
+    name: ""
+    mode: "text"
+    content: ""
+  }
+  {
+    name: "test.vue"
+    mode: "Plain Text"
+    content: '''
+      <template>
+      	<input type="text" class="name-input" 
+      	v-bind:value="value" 
+      	 v-on:input="updateValue($event.target.value)" />
+      </template>
+      <script>
+      	 export default {
+      		props:['value'],
+      		methods: {
+      			updateValue: function (value) {
+      				 this.$emit('input', value)
+      			}
+      		}
+      	}
+      </script>
+      
+    '''
+  }
+  {
+    name: "index.html"
+    mode: "HTML"
+    content: '''
+      <html>
+      	<div id="LargeClassification">
+      		<test v-model="tests"></test>
+      		<button class="search-btn" v-on:click="getTest">検索</button>
+      		@{{tests}}
+      		<div>
+      	</div>
+      <script src="js/master\\app.js"></script>
+      </html>
+      
+    '''
+  }
+  {
+    name: "app.js"
+    mode: "JavaScript"
+    content: '''
+      var axios = require('axios');
+      var Vue = require('vue');
+      
+      window.Vue = require('vue');
+      Vue.component('test', require('./../components/test.vue'));
+      
+      const app = new Vue({
+      	el: '#app',
+      	data: {
+      		tests: ""
+      	}
+      })
+      
+    '''
+  }
+]
+tags: []
+isStarred: false
+createdAt: "2017-06-22T07:17:18.269Z"
+updatedAt: "2017-06-22T07:21:35.975Z"

@@ -1,0 +1,13 @@
+type: "MARKDOWN_NOTE"
+folder: "9c866f10d427be4a495c"
+title: "アーンドバリュー（Earned Value）とは"
+content: '''
+  アーンドバリュー（Earned Value）とは 
+  プロジェクトの進ちょく状況（コストとスケジュール）を客観的に測定するための指標。「出来高」と訳される。アーンドバリューを使ったコストおよび進ちょく管理の手法をアーンドバリューマネジメントと呼び、以下の基本数値を使って、プロジェクトの状況を金銭価値（円やドル表示）として把握する。 
+  (1)プロジェクトを構成する各作業に割り当てられた「完成までの当初予算」（BAC、Budget at Completion）。(2)進ちょく判断の基礎となる、各作業の計画コスト（出来高計画値）。PV（Planned Value）またはBCWS（Budget Cost of Work Scheduled）。(3)ある作業の現時点までの成果を表す出来高（出来高実績値）。EV（Earned Value）またはBCWP（Budgeted Cost of Work Performed）。その時点の達成率をPVにかけて算出する。(4)EVを実現するために投入した実コスト。AC（Actual Cost）またはACWP（Actual Cost of Work Performed）。 
+  PVとACの差は、「その時点までの予算と実際にかかったコストの差額」、PVとEVの差は、「スケジュールの遅れ具合」を表す。EVをACで割ればコスト効率、EVをPVで割ればスケジュール効率がわかる。コスト効率とスケジュール効率から残りの作業を見積もれば、BAC（当初予算）との差が計算できる。 
+'''
+tags: []
+isStarred: false
+createdAt: "2017-04-28T02:01:42.544Z"
+updatedAt: "2017-04-28T02:02:22.847Z"

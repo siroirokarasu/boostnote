@@ -1,0 +1,79 @@
+type: "SNIPPET_NOTE"
+folder: "b4c8dac7c4ee0cfe9bb4"
+title: "Hello表示"
+description: '''
+  Hello表示
+  
+  Vue.component('hello', require('./components/Hello.vue'));
+'''
+snippets: [
+  {
+    name: "Hello.vue"
+    mode: "text"
+    content: '''
+      <template>
+      <h2>Hello <span class="name">{{name}}</span>!</h2>
+      </template>
+      <script>
+          export default {
+              props: ['name']
+          }
+      </script>
+      <style scoped>
+          .name {
+              font-weight: bold;
+          }
+      </style>
+    '''
+  }
+  {
+    name: "app.php"
+    mode: "PHP"
+    content: '''
+      <?php?>
+      <!doctype html>
+      <html>
+      <head>
+      <div id="test">
+          <hello></hello>
+          <hello name="Laravel"></hello>
+          <hello name="Vue.js"></hello>
+      </div>
+      <script src="js/test.js"></script>
+      </body>
+      </html>
+    '''
+  }
+  {
+    name: "test.js"
+    mode: "JavaScript"
+    content: '''
+      /**
+       * First we will load all of this project's JavaScript dependencies which
+       * includes Vue and other libraries. It is a great starting point when
+       * building robust, powerful web applications using Vue and Laravel.
+       */
+      
+      require('./bootstrap');
+      
+      window.Vue = require('vue');
+      
+      /**
+       * Next, we will create a fresh Vue application instance and attach it to
+       * the page. Then, you may begin adding components to this application
+       * or customize the JavaScript scaffolding to fit your unique needs.
+       */
+      
+      Vue.component('hello', require('./components/Hello.vue'));
+      
+      const app = new Vue({
+          el: '#app'
+      });
+      
+    '''
+  }
+]
+tags: []
+isStarred: false
+createdAt: "2017-06-12T06:14:59.734Z"
+updatedAt: "2017-06-12T06:18:04.818Z"

@@ -1,0 +1,13 @@
+type: "MARKDOWN_NOTE"
+folder: "f282083b299efec6c76d"
+title: "DB消去"
+content: '''
+  DB消去
+  STARTUP FORCE MOUNT
+  ALTER SYSTEM ENABLE RESTRICTED SESSION ;
+  DROP DATABASE ;
+'''
+tags: []
+isStarred: false
+createdAt: "2017-05-22T06:37:59.296Z"
+updatedAt: "2017-05-22T06:38:09.054Z"

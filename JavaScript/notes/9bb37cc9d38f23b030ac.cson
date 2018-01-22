@@ -1,0 +1,20 @@
+type: "MARKDOWN_NOTE"
+folder: "0c2c9cdedc7714162967"
+title: "Web Components に似ている"
+content: '''
+  Web Components に似ている
+  
+  Riot のカスタムタグは HTML の新しい標準仕様として策定が進んでいる Web Components ( 厳密にはその中の HTML Templates )に似ています。
+  
+  Riot は Web Components に似た仕様を Web Components よりも少ないコードで実現できます。
+  
+  Riot 自体が最終的に Web Components に辿り着くべきであるという方針のため、Web Components が広範にサポートされる世界では、Riot は実際の Web Components をより簡単に開発できるように手助けしてくれるかも知れません。
+  
+  ちなみに、Web Components では独自のタグの命名を my-component のようにハイフンで区切ることが規定されています。来る日に向けて、さきほど例示した weather タグも my-weather のように名前を変えておきましょう。
+  
+  標準どおりで覚えることが少ない
+'''
+tags: []
+isStarred: false
+createdAt: "2017-06-06T06:46:51.207Z"
+updatedAt: "2017-06-06T06:46:56.793Z"

@@ -1,0 +1,42 @@
+type: "SNIPPET_NOTE"
+folder: "58401836b51a5e8b2c83"
+title: "PHPでの変数をHTMLで使用する"
+description: '''
+  PHPでの変数をHTMLで使用する
+  変数定義
+  $me =  'Pyornide';
+  
+  変数使用
+  <?=$me;?>
+'''
+snippets: [
+  {
+    name: "test.php"
+    mode: "PHP"
+    content: '''
+      <?php?>
+      <?php
+      $me =  'Pyornide';
+      ?>
+      <!doctype html>
+      <html>
+      <head>
+          <meta charset="UTF-8">
+          <title>Large Classification</title>
+          <link rel="stylesheet" href="css/app.css"/>
+          <script type="text/javascript">
+              window.Laravel = window.Laravel || {};
+              window.Laravel.csrfToken = "{{csrf_token()}}";
+          </script>
+      </head>
+      <body>
+          <h1><?=$me;?></h1>
+      </body>
+      </html>
+    '''
+  }
+]
+tags: []
+isStarred: false
+createdAt: "2017-06-12T02:24:27.244Z"
+updatedAt: "2017-06-12T02:26:13.414Z"

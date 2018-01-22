@@ -1,0 +1,73 @@
+type: "SNIPPET_NOTE"
+folder: "b4c8dac7c4ee0cfe9bb4"
+title: "babel-preset-es2015 babel-preset-stage-3の追加"
+description: "babel-preset-es2015 babel-preset-stage-3の追加"
+snippets: [
+  {
+    name: ""
+    mode: "text"
+    content: '''
+      npm i -S babel-polyfill
+      npm i -D babel-preset-es2015 babel-preset-stage-3
+      
+      2016-04-24 現在、async/await は ECMAScript 策定段階において Stage 3 であるため、Stage 3 用の preset を導入する必要がある（ここでは ES2015 用の preset も同時にインストールしている）。
+      
+      また、babel-polyfill をインストールしておかないと、regeneratorRuntime が見つからないと後で怒られる。
+      
+      なお、 npm i -S は npm install --save と、 npm i -D は npm install --save-dev と等価。
+      
+      これらのインストールが終わったら、バベる際に用いる preset を .babelrc に明記する必要がある。
+      package.json
+      {
+        // ...
+        "babel": {
+          "presets": [ "es2015", "stage-3" ]
+        }
+      }
+    '''
+  }
+  {
+    name: "package.json"
+    mode: "JSON"
+    content: '''
+      {
+        "private": true,
+        "scripts": {
+          "dev": "npm run development",
+          "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+          "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+          "watch-poll": "npm run watch -- --watch-poll",
+          "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+          "prod": "npm run production",
+          "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+        },
+        "devDependencies": {
+          "axios": "^0.15.3",
+          "babel-preset-es2015": "^6.24.1",
+          "babel-preset-stage-3": "^6.24.1",
+          "bootstrap-sass": "^3.3.7",
+          "cross-env": "^3.2.3",
+          "jquery": "^3.1.1",
+          "laravel-mix": "0.*",
+          "lodash": "^4.17.4",
+          "vue": "^2.1.10",
+          "vuex": "^2.3.1"
+        },
+        "dependencies": {
+          "axios": "^0.15.3",
+          "babel-polyfill": "^6.23.0"
+        },
+      	//　追加
+        "babel": {
+          "presets": [ "es2015", "stage-3" ]
+        }
+      	//　追加
+      }
+      
+    '''
+  }
+]
+tags: []
+isStarred: false
+createdAt: "2017-06-13T05:48:31.430Z"
+updatedAt: "2017-06-13T05:50:10.309Z"

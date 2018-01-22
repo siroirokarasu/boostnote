@@ -1,0 +1,38 @@
+type: "SNIPPET_NOTE"
+folder: "0c2c9cdedc7714162967"
+title: ""
+description: ""
+snippets: [
+  {
+    name: "todo.js"
+    mode: "JavaScript"
+    content: '''
+      <todo>
+        <h3>TODO</h3>
+      
+        <ul>
+          <li each={ item, i in items }>{ item }</li>
+        </ul>
+      
+        <form onsubmit={ handleSubmit }>
+          <input ref="input">
+          <button>Add #{ items.length + 1 }</button>
+        </form>
+      
+        <script>
+          this.items = []
+      
+          handleSubmit(e) {
+            e.preventDefault()
+            var input = this.refs.input
+            this.items.push(input.value)
+            input.value = ''
+          }
+        </scri
+    '''
+  }
+]
+tags: []
+isStarred: false
+createdAt: "2017-06-06T06:40:04.682Z"
+updatedAt: "2017-06-06T06:41:26.910Z"

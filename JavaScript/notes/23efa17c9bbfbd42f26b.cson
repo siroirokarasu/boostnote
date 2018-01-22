@@ -1,0 +1,132 @@
+type: "SNIPPET_NOTE"
+folder: "b4c8dac7c4ee0cfe9bb4"
+title: "vue.jsにvuexを導入する"
+description: '''
+  vue.jsにvuexを導入する
+  
+'''
+snippets: [
+  {
+    name: ""
+    mode: "text"
+    content: '''
+      vuexを導入する手順の作業メモです。
+      vuexを利用することにより、各コンポーネントで保持していたデータをstateにまとめられるので、ある程度規模が大きくなっても耐えられるプログラムを作成することができます。
+      開発環境やフォルダ構成はwebpackでモジュールのパスを絶対パスで指定する方法で扱ったものと同様とします。
+      
+      storeの作成
+      storeフォルダを作成し、その中にvuexで必要なgetters,actions,mutationsを作成します。
+      ファイルの中身は空でOKです。
+      フォルダ構成は以下のようになります。
+      
+      app.js (エントリポイント)
+      components/
+      	App.vue
+      store/
+      	actions.js
+      	getters.js
+      	mutations.js
+      	index.js
+      store/index.jsでvuexをImportしてvuexのstoreを作成し、エントリポイントのapp.jsからstore/index.jsをImportします。
+      まだstoreにはまだ何もない状態ですが、これでvuexの導入ができました。
+      
+      実際にstoreを作成して、各コンポーネントでその値を参照できるようにします。
+      
+      storeの作成
+      最初にstoreを作成します。
+      mutations.jsにstateのオブジェクトを定義します。stateがアプリケーション全体の状態を管理します。
+      
+      コンポーネントで参照する
+      各コンポーネントではthis.$storeでvuexの情報が取得できます。
+      以下のようにApp.vueを変更してビルドすると、hello vuexと表示されます。
+      
+      mapStateの箇所でエラーになってしまう場合
+      
+      ...はvue.jsやvuexで用意された機能ではなく、オブジェクトスプレッド演算子という新しいjavascriptの記法です。
+      
+      オブジェクトスプレッド演算子はstage-3なので、babel-preset-stage-3のパッケージをインストールし、babelrcに以下のように追記する必要があります。（babel-preset-stage-3の代わりにbabel-preset-stage-2やbabel-preset-stage-0でもOKです）
+      $ npm install --save-dev babel-preset-stage-3
+      
+    '''
+  }
+  {
+    name: "index.js"
+    mode: "JavaScript"
+    content: '''
+      import Vue from 'vue';
+      import Vuex from 'vuex';
+      import * as actions from 'js/store/actions';
+      import * as getters from 'js/store/getters';
+      import { state, mutations } from 'js/store/mutations';
+      
+      Vue.use(Vuex);
+      
+      export default new Vuex.Store({
+        actions,
+        getters,
+        state,
+        mutations
+      });
+    '''
+  }
+  {
+    name: "app.js"
+    mode: "JavaScript"
+    content: '''
+      import Vue from 'vue';
+      import store from 'js/store';
+      import App from 'js/components/App.vue';
+      
+      new Vue({
+        el: '#app',
+        store,
+        render: h => h(App)
+      });
+    '''
+  }
+  {
+    name: "mutations.js"
+    mode: "JavaScript"
+    content: '''
+      export const state = {
+        message: 'hello vuex'
+      };
+    '''
+  }
+  {
+    name: "App.vue"
+    mode: "Plain Text"
+    content: '''
+      <template>
+        <div class="message">
+          {{ message }}
+        </div>
+      </template>
+      
+      <script>
+      export default {
+        computed: {
+          message () {
+            return this.$store.state.message;
+          }
+        }
+      };
+      </script>
+    '''
+  }
+  {
+    name: ".babelrc"
+    mode: "Plain Text"
+    content: '''
+      {
+        "presets": ["es2015", "stage-3"]
+      }
+    '''
+  }
+]
+tags: [
+  "vuex"
+]
+isStarred: false
+createdAt: "2017-06-13T04:18:28.754Z"
+updatedAt: "2017-07-06T01:33:03.971Z"

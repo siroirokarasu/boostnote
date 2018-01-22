@@ -1,0 +1,67 @@
+type: "SNIPPET_NOTE"
+folder: "b4c8dac7c4ee0cfe9bb4"
+title: "vuexのmutationでstateの値を変更する"
+description: "vuexのmutationでstateの値を変更する"
+snippets: [
+  {
+    name: ""
+    mode: "text"
+    content: '''
+      vue.jsにvuexを導入するでstateを作成して各コンポーネントで参照できるようになりました。
+      stateはmutationの処理でしか変更することができません。コンポーネントからmutationを実行し、stateの値を更新する方法を紹介します。
+      
+      mutation-typesの作成
+      mutationを作成するにあたって、最初にmutation-typesを作成します。
+      
+      変数名と同じ文字列を定義したconstの変数を定義します。
+      mutationをコールするとき、mutationの指定は文字列で行います。文字列をconstで定義しておけばmutationの宣言やコールを全て定義したconst変数で行えるため、コーディングミスが減り、保守性も上がります。
+      
+      mutationの作成
+      mutations.jsファイルにmutationの処理を作成します。store.messageの内容を変更するmutationです。
+      第一引数はstateとなるため、引数が必要な場合は第２引数に定義します。
+      
+      
+      
+      
+      
+      
+      
+    '''
+  }
+  {
+    name: "mutation-types.js"
+    mode: "JavaScript"
+    content: "export const MESSAGE_UPDATE = 'MESSAGE_UPDATE';"
+  }
+  {
+    name: "mutations.js"
+    mode: "JavaScript"
+    content: '''
+      import * as types from 'js/store/mutation-types'; //mutation-typesをImportします
+      
+      export const state = {
+        message: 'hello vuex'
+      };
+      
+      export const mutations = {
+        [types.MESSAGE_UPDATE] (state) {
+          state.message = 'hello mutation';
+        },
+        // 引数が必要な場合は第２引数に定義します
+        [types.HOGE] (state, param) {
+          state.message = param.message;
+        },
+        // このような方法もよく見かけます（機能はHOGEと同じです）
+        [types.HUGA] (state, { message }) {
+          state.message = message;
+        }
+      };
+    '''
+  }
+]
+tags: [
+  "vuex"
+]
+isStarred: false
+createdAt: "2017-06-13T04:58:24.692Z"
+updatedAt: "2017-07-06T01:32:28.955Z"

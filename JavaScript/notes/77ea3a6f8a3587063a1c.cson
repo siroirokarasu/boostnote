@@ -1,0 +1,40 @@
+type: "SNIPPET_NOTE"
+folder: "b4c8dac7c4ee0cfe9bb4"
+title: "$root"
+description: '''
+  $root
+  Type: Object ViewModel
+  Read only
+  親ビューオブジェクトをたどった最も親なビューモデル。
+'''
+snippets: [
+  {
+    name: ".js"
+    mode: "JavaScript"
+    content: '''
+      <script src="js/vue.js"></script>
+      <script>
+        var grand_parent = new Vue({
+          data: {
+            foo: {}
+          }
+        });
+        var parent = new Vue({
+          parent: grand_parent,
+          data: {
+            bar: {}
+          }
+        });
+        var child = new Vue({
+          parent: parent
+        });
+        console.log(typeof child.$root.foo);  // object
+        console.log(typeof child.$root.bar);  // undefined
+      </script>
+    '''
+  }
+]
+tags: []
+isStarred: false
+createdAt: "2017-07-28T01:20:24.647Z"
+updatedAt: "2017-07-28T01:25:24.718Z"

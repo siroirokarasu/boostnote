@@ -1,0 +1,130 @@
+type: "SNIPPET_NOTE"
+folder: "3794a3ea40fb556f6249"
+title: "nfc使用方法"
+description: '''
+  nfc使用方法
+  android Beam
+  
+  ICWriteActivity.csについて
+  【1】まず、onCreate時に、NfcAdapterインスタンスを入手し、インスタンス変数として保持しておきます。
+  【2】は、Google Playにアプリケーションを公開するときに、NFCケータイ以外ではダウンロードできないようにするための設定です。必須というわけではありませんが、アプリケーションを公開する場合には記載しておくと良いでしょう。
+  【3】onResume時（Activityがフォアグラウンドになるとき）に、入手したNfcAdapterインスタンスを使って、foreground dispatch systemを有効化するenableForegroundDispatchメソッドを呼び出します(。
+  また、onPause時(Activityがバックグラウンドになるとき)に、foreground dispatch systemを無効化するdisableForegroundDispatchメソッドを呼び出します( 図.3-2 【4】)。
+  enableForegroundDispatchメソッドに指定する引数の意味について、 表.3-1 に示しました。第2引数に指定するためのPendingIntentは、createPendingIntentメソッド内で生成しており【2】)、自分自身(SmartPosterWritingActivity)を起動するためのインテントを指定しています。その時に、FLAG_ACTIVITY_SINGLE_TOPフラグを指定するのを忘れないようにしてください( 【5】)。この指定によって、NFCタグがかざされた時に、本Activityが再起動せずに、onNewIntent()が呼び出されるようになります。
+'''
+snippets: [
+  {
+    name: "AndroidManifest.xml"
+    mode: "XML"
+    content: '''
+      <?xml version="1.0" encoding="utf-8"?>
+      <manifest xmlns:android="http://schemas.android.com/apk/res/android" 
+                package="App3.App3" 
+                android:versionCode="1" 
+                android:versionName="1.0">
+        <uses-sdk android:minSdkVersion="16" />
+        <uses-permission android:name="android.permission.NFC" /> ← 追加する
+        <application android:label="App3"></application>
+      </manifest>
+    '''
+  }
+  {
+    name: "ICWriteActivity.cs"
+    mode: "C#"
+    content: '''
+      using Android.Nfc;
+      using Android.Nfc.Tech;
+      
+      namespace App3.Resources
+      {
+          [Activity(Label = "ICWriteActivity")]
+          public class ICWriteActivity : Activity
+          {
+              private NfcAdapter nfcAdapter;
+      
+              protected override void OnCreate(Bundle bundle)
+              {
+                  base.OnCreate(bundle);
+                  nfcAdapter = NfcAdapter.GetDefaultAdapter(this); // 【1】
+                  SetContentView(Resource.Layout.ICWrite);
+              }
+      
+              protected override void OnResume()
+              {
+                  base.OnResume();
+                  PendingIntent pi = createPendingIntent(); // 【2】
+                  nfcAdapter.EnableForegroundDispatch(this, pi, null, null); // 【3】
+              }
+      
+              protected override void OnPause()
+              {
+                  base.OnPause();
+                  nfcAdapter.DisableForegroundDispatch(this); // 【4】
+              }
+      
+              private PendingIntent createPendingIntent()
+              {
+                  Intent i = new Intent(this, this.Class);
+                  i.AddFlags(ActivityFlags.SingleTop
+                      | ActivityFlags.NewTask); // 【5】
+                  return PendingIntent.GetActivity(this, 0, i, 0);
+              }
+      
+              protected override void OnNewIntent(Intent intent)
+              {
+                  base.OnNewIntent(intent);
+                  Tag tag = (Tag)intent.GetParcelableExtra(NfcAdapter.ExtraTag); //【6】
+                  if (tag == null)
+                  {
+                      // NFCタグがかざされたのとは異なる理由でインテントが飛んできた
+                      WriteResultText("想定外のIntent受信です。");
+                      return;
+                  }
+      
+                  Ndef ndefTag = Ndef.Get(tag); // 【7】
+                  if (ndefTag == null)
+                  {
+                      // NDEFフォーマットされていないタグがかざされた
+                      WriteResultText("NDEF形式ではないタグがかざされました。");
+                      return;
+                  }
+              }
+    '''
+  }
+  {
+    name: "a.cs"
+    mode: "C#"
+    content: '''
+              protected override void OnCreate(Bundle bundle)
+              {
+                  base.OnCreate(bundle);
+                  nfcAdapter = NfcAdapter.GetDefaultAdapter(this); // 【1】
+                  SetContentView(Resource.Layout.ICWrite);
+              }
+      
+              private PendingIntent createPendingIntent()
+              {
+                  Intent i = new Intent(this, this.Class);
+                  i.AddFlags(ActivityFlags.SingleTop
+                      | ActivityFlags.NewTask); // 【5】
+                  return PendingIntent.GetActivity(this, 0, i, 0);
+              }
+      
+              protected override void OnNewIntent(Intent intent)
+              {
+                  base.OnNewIntent(intent);
+                  Tag tag = (Tag)intent.GetParcelableExtra(NfcAdapter.ExtraTag); //【6】
+                  if (tag == null)
+                  {
+                      // NFCタグがかざされたのとは異なる理由でインテントが飛んできた
+                      WriteResultText("想定外のIntent受信です。");
+                      return;
+                  }
+              }
+    '''
+  }
+]
+tags: []
+isStarred: false
+createdAt: "2017-04-19T05:07:13.215Z"
+updatedAt: "2017-04-21T07:31:56.266Z"

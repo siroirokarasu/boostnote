@@ -1,0 +1,105 @@
+type: "SNIPPET_NOTE"
+folder: "b4c8dac7c4ee0cfe9bb4"
+title: "親とやりとりする"
+description: '''
+  親とやりとりする
+  
+  親や他のコンポーネントとやりとりする場合はイベントを推奨されているようです。
+'''
+snippets: [
+  {
+    name: ""
+    mode: "text"
+    content: '''
+      子→親
+      親の$onでイベントをリッスンした上で、子側でクリックが走った際に$dispatchしてやると親でイベントを受け取ることができます
+      
+      親→子
+      次は逆で子供側でイベントをリッスンした上で、親側のボタンがクリックされた際に$broadcastでvm全体にたいしてイベントを送ってやれば子供側でイベントを受け取ることができます。(この場合は$dispatchではダメ。)
+      
+    '''
+  }
+  {
+    name: "sempel.html"
+    mode: "HTML"
+    content: '''
+      <div id="app">
+        <button v-on="click: onClick">親クリック</button>
+        <my-items items="{{items}}"></my-items>
+      </div>
+      
+      <script id="items" type="x-template">
+        <ul>
+          <li v-repeat="items">{{$value}}</li>
+        </ul>
+        <button v-on="click: onClick">子クリック</button>
+      </script>
+    '''
+  }
+  {
+    name: "chird.vue"
+    mode: "JavaScript"
+    content: '''
+      var MyItems = Vue.extend({
+        props: ['items'],
+        template: '#items',
+        methods: {
+          onClick: function() {
+            this.$dispatch('child-clicked', this);
+          }
+        }
+      })
+      
+      Vue.component('my-items', MyItems);
+      var app = new Vue({
+        el: '#app',
+      
+        created: function() {
+          this.$on('child-clicked', function (child) {
+            console.log('child is clicked: ')
+            console.log(child)
+          })
+        },
+      
+        data: {
+          items: ['りんご', 'いちご', 'バナナ']
+        }
+      });
+    '''
+  }
+  {
+    name: ".vue"
+    mode: "JavaScript"
+    content: '''
+      var MyItems = Vue.extend({
+        props: ['items'],
+        created: function() {
+          this.$on('parent-clicked', function (parent) {
+            console.log('parent is clicked: ')
+            console.log(parent)
+          })
+        },
+        template: '#items'
+      })
+      
+      Vue.component('my-items', MyItems);
+      var app = new Vue({
+        el: '#app',
+      
+        data: {
+          items: ['りんご', 'いちご', 'バナナ']
+        },
+      
+        methods:{
+          onClick: function() {
+            this.$broadcast('parent-clicked', this);
+          }
+        }
+      });
+    '''
+  }
+]
+tags: []
+isStarred: false
+createdAt: "2017-06-16T02:22:07.755Z"
+updatedAt: "2017-06-16T02:25:21.721Z"
